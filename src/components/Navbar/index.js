@@ -11,7 +11,7 @@ import {
   NavBtn,
   NavBtnLink,
 } from "./NavbarElements";
-
+import { infoData } from "../../data";
 import Resume from "../../Manav_Rajvanshi_Resume.pdf";
 
 const Navbar = ({ toggle }) => {
@@ -24,26 +24,9 @@ const Navbar = ({ toggle }) => {
             <FaBars />
           </MobileIcon>
           <NavMenu>
-            <NavItem>
-              <NavLinks to="about" smooth={true} duration={500}>
-                About
-              </NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="experience" smooth={true} duration={500}>
-                Experience
-              </NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="projects" smooth={true} duration={500} offset={-80}>
-                Projects
-              </NavLinks>
-            </NavItem>
-            <NavItem>
-              <NavLinks to="skills" smooth={true} duration={500}>
-                Skills
-              </NavLinks>
-            </NavItem>
+            {infoData.map((content, id) => {
+              return <NavLink key={id + "-nav"} {...content} />;
+            })}
           </NavMenu>
           <NavBtn>
             <NavBtnLink href={Resume} download>
@@ -56,4 +39,13 @@ const Navbar = ({ toggle }) => {
   );
 };
 
+const NavLink = (content) => {
+  return (
+    <NavItem>
+      <NavLinks to={content.id} smooth={true} duration={500}>
+        {content.topLine}
+      </NavLinks>
+    </NavItem>
+  );
+};
 export default Navbar;

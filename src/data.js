@@ -122,7 +122,7 @@ export const infoData = [
       },
     ],
     img: svg3,
-    alt: "about",
+    alt: "projects",
   },
   {
     id: "skills",

@@ -36,6 +36,7 @@ export const SidebarWrapper = styled.div`
 `;
 
 export const SidebarMenu = styled.ul`
+  margin-top: 6rem;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(6, 80px);
@@ -62,4 +63,28 @@ export const SidebarLink = styled(LinkS)`
     transition: 0.2s ease-in-out;
     color: #01bf71;
   }
+`;
+
+export const NavBtnLink = styled.a`
+  border-radius: 50px;
+  background: #01bf71;
+  white-space: nowrap;
+  padding: 10px 22px;
+  color: #010606;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+
+  &:hover {
+    transition: all 0.2s ease-in-out;
+    background: #ffffff;
+    color: #010606;
+  }
+`;
+export const NavBtn = styled.nav`
+  display: flex;
+  justify-content: center;
 `;

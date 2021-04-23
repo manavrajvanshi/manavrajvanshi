@@ -6,8 +6,11 @@ import {
   SidebarWrapper,
   SidebarMenu,
   SidebarLink,
+  NavBtn,
+  NavBtnLink,
 } from "./SidebarElements";
-
+import { infoData } from "../../data";
+import Resume from "../../Manav_Rajvanshi_Resume.pdf";
 const Sidebar = ({ isOpen, toggle }) => {
   return (
     <SidebarContainer isOpen={isOpen} onClick={toggle}>
@@ -16,22 +19,24 @@ const Sidebar = ({ isOpen, toggle }) => {
       </Icon>
       <SidebarWrapper>
         <SidebarMenu>
-          <SidebarLink onClick={toggle} to="about" smooth={true} duration={500} offset={-80}>
-            About
-          </SidebarLink>
-          <SidebarLink onClick={toggle} to="experience" smooth={true} duration={500} offset={-80}>
-            Experience
-          </SidebarLink>
-          <SidebarLink onClick={toggle} to="projects" smooth={true} duration={500} offset={-80}>
-            Projects
-          </SidebarLink>
-          <SidebarLink onClick={toggle} to="skills" smooth={true} duration={500} offset={-80}>
-            Skills
-          </SidebarLink>
+          {infoData.map((content, id) => {
+            return <SideLink key={id + "-sidenav"} content={content} toggle={toggle} />;
+          })}
         </SidebarMenu>
+        <NavBtn>
+          <NavBtnLink href={Resume} download>
+            Resume
+          </NavBtnLink>
+        </NavBtn>
       </SidebarWrapper>
     </SidebarContainer>
   );
 };
-
+const SideLink = ({ toggle, content }) => {
+  return (
+    <SidebarLink onClick={toggle} to={content.id} smooth={true} duration={500} offset={-80}>
+      {content.topLine}
+    </SidebarLink>
+  );
+};
 export default Sidebar;

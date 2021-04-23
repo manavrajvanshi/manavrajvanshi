@@ -38,6 +38,10 @@ export const HeroContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-width: 768px) {
+    font-size: 1.5rem;
+    margin-top: 8rem;
+  }
 `;
 
 export const HeroH1 = styled.h1`
@@ -89,7 +93,7 @@ export const SocialContainer = styled.div`
   max-width: 600px;
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
-    flex-direction: column;
+    /* flex-direction: column; */
   }
   @media screen and (max-width: 480px) {
     font-size: 1.2rem;
@@ -106,6 +110,6 @@ export const SocialIcon = styled.a`
   }
   @media screen and (max-width: 768px) {
     font-size: 1.5rem;
-    margin: 4rem;
+    margin: 1rem;
   }
 `;
